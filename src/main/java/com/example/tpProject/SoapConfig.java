@@ -10,7 +10,7 @@ public class SoapConfig {
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setContextPath("com.example.tpProject.SoapGen"); // Set the context path to the package containing your generated classes
+        marshaller.setContextPath("com.example.tpProject.SoapGen");
         return marshaller;
     }
 

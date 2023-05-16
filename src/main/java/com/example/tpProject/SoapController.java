@@ -3,18 +3,13 @@ package com.example.tpProject;
 
 
 
-import com.example.tpProject.SoapGen.Add;
-import com.example.tpProject.SoapGen.AddResponse;
-import com.example.tpProject.SoapGen.Divide;
-import com.example.tpProject.SoapGen.DivideResponse;
+import com.example.tpProject.SoapGen.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -37,6 +32,14 @@ public class SoapController {
         Divide X=objectMapper.readValue(request, Divide.class);
         System.out.println("ok");
         return soapClient.divideResult(X);
+
+    }
+    @PostMapping("/Multiply")
+    public MultiplyResponse multiply(@RequestBody String request) throws JsonProcessingException {
+        ObjectMapper objectMapper= new ObjectMapper();
+        Multiply X=objectMapper.readValue(request, Multiply.class);
+        System.out.println("ok");
+        return soapClient.multiplyResult(X);
 
     }
 

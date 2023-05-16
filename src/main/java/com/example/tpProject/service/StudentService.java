@@ -5,6 +5,7 @@ import com.example.tpProject.model.Student;
 import java.util.List;
 
 public interface StudentService {
+
     public List<Student> studentList();
 
 
@@ -13,4 +14,6 @@ public interface StudentService {
     public Student save(Student student);
     public Student update(Student student, Long id);
     public void  delete(Long id);
+
+    public Object getJokes();
 }
