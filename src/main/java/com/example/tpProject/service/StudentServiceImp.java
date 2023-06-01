@@ -10,6 +10,15 @@ import java.util.Arrays;
 import java.util.List;
 @Service
 public class StudentServiceImp implements StudentService  {
+    @Override
+    public Object getJokes() {
+      // Adrresse API REST
+        String rest_api_url ="https://official-joke-api.appspot.com/random_joke";
+        Object listofjOKES = restTemplate.getForObject(rest_api_url,Object.class);
+
+        return  listofjOKES;
+    }
+
     @Autowired
     private RestTemplate restTemplate;
     @Autowired
@@ -39,13 +48,6 @@ public class StudentServiceImp implements StudentService  {
     public void delete(Long id) {
             studentRepository.deleteById(id);
     }
-    @Override
-    public Object getJokes() {
-// Adrresse API REST
-        String rest_api_url ="https://official-joke-api.appspot.com/random_joke";
-        Object listofjOKES = restTemplate.getForObject(rest_api_url,Object.class);
 
-        return  listofjOKES;
-    }
 
 }

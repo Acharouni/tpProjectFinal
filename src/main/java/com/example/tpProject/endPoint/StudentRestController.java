@@ -11,7 +11,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 public class StudentRestController {
-
+    @GetMapping("/jokes")
+    public Object listOfJokes() {
+        return studentService.getJokes();
+    }
     @Autowired
     private StudentService studentService;
 
@@ -35,10 +38,7 @@ public class StudentRestController {
     public void delete(@PathVariable Long id) {
         studentService.delete(id);
     }
-    @GetMapping("/jokes")
-    public Object listOfJokes() {
-        return studentService.getJokes();
-    }
+
 
 
 }
