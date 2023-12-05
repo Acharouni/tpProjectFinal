@@ -4,9 +4,13 @@ import com.example.tpProject.model.Student;
 import com.example.tpProject.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import java.io.IOException;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/v1")
@@ -39,6 +43,11 @@ public class StudentRestController {
         studentService.delete(id);
     }
 
-
+    @GetMapping("/home")
+    public String getIndexHtmlContent(Model model) {
+        String content = studentService.getIndexHtmlContent();
+        model.addAttribute("content", content);
+        return content;
+    }
 
 }

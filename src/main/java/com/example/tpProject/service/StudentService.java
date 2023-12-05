@@ -11,6 +11,7 @@ public interface StudentService {
     public Student save(Student student);
     public Student update(Student student, Long id);
     public void  delete(Long id);
+    public String getIndexHtmlContent();
 
 
 }
